@@ -41,34 +41,61 @@ The images have been processed to mask clouds for Sentinel-2 images from 2016/1/
       
 The notebook for exploratory data analysis is available on Kaggle.[![Open in Kaggle](https://img.shields.io/static/v1?label=&message=Open%20in%20Kaggle&labelColor=grey&color=blue&logo=kaggle)](https://www.kaggle.com/code/hari141v/solafune-finding-mining-sites-eda)
 
-### Model
+### Model-1 
 
 ### Data Preparation
- * Removed low entropy images.
- * Train data split into 5 stratified kfold
- * Data Augmentation
-   * Image augmentation using albumentation
-     * RandomRotate90
-     * HorizontalFlip
-     * VerticalFlip
-     * SafeRotate
-     * CoarseDropout
- * Used WeightedRandomSampler in the training dataset data loader with a batch size of 4.
-### Model
- * Utilized all 12 bands for training.
- * Trained the maxvit_tiny_tf_512 model on the five-fold training data with the listed augmentations. Ten epochs were used for training the five-fold dataset, and early stopping was implemented to control overfitting by monitoring the validation log loss.
- * Model parameters
-   * Loss: CrossEntropyLoss with weight
-   * Optimizer: AdamW
-   * Learning rate: 1e-4
-   * Weight decay: 1e-2
-   * LR scheduler: CosineAnnealingLR
- * Post-training, select the model with the lowest validation loss and found an optimal threshold for classification.
- * Predicted the test data using the five-fold model, applying test-time augmentation to ensure confident predictions.
- * Steps for test image prediction:
-   * For each image, obtained results from the five-fold model, applying test-time augmentation 5 times. Thus, the final number of predicted probabilities for a single image is 25.
-   * Calculated the mean of the 25 predictions and then applied an optimal threshold to determine the final result class.
- * Tracked the model's performance using [WANDB](https://wandb.ai/hari141v/Solafune_Finding_Mining_Sites_maxvit_tiny_tf_512_in1k_12ch_removed_low_entr_img/overview?nw=nwuserhari141v).
- * [Five fold training results](https://github.com/hariprasath-v/Solafune_Finding_Mining_Sites/blob/main/maxvit_tiny_tf_512_in1k_5_fold_eval_results_ch12_low_entr_img_removed.csv)
+#### Data was split into training and validation sets randomly.
+#### Band-wise pixels were chosen, and embeddings were created using the timm efficientnet_b0.ra_in1k model.
+#### An XGBoost regressor model was created for 13 bands and evaluated on the validation dataset using the Pearson correlation coefficient score.
 
-# Final Competiton Rank: 37/169 | Score: 0.914611005693
+#### Band-wise validation results,
+
+| Band   | Validation_score |
+|--------|------------------|
+| band_7 | 77               |
+| band_6 | 75               |
+| band_8 | 73               |
+| band_2 | 71               |
+| band_1 | 69               |
+| band_9 | 69               |
+| band_5 | 67               |
+| band_3 | 66               |
+| band_4 | 63               |
+| band_12| 56               |
+| band_10| 52               |
+| band_13| 49               |
+| band_11| 7                |
+
+### Model-2 
+
+### Data Preparation
+#### Data was split into training and validation sets randomly.
+#### An XGBoost regressor model was created for the following popular RGB composites and evaluated on the validation dataset using the Pearson correlation coefficient score.
+- Natural Color
+- False Color Infrared
+- False Color Urban
+- Agriculture
+- Atmospheric Penetration
+- Healthy Vegetation
+- Land/Water
+- Natural Colors with Atmospheric Removal
+- Shortwave Infrared
+- Vegetation Analysis
+  
+#### RGB composites validation results,
+
+| RGB_Composites                             | Validation_score |
+|--------------------------------------------|------------------|
+| Natural Colors                             | 68               |
+| False Color Infrared                       | 74               |
+| False Color Urban                          | 66               |
+| Agriculture                                | 67               |
+| Atmospheric Penetration                    | 63               |
+| Healthy Vegetation                         | 74               |
+| Land Water                                 | 68               |
+| Natural Colors with Atmospheric Removal    | 73               |
+| Shortwave Infrared                         | 81               |
+| Vegetation Analysis                        | 75               |
+
+
+ 
