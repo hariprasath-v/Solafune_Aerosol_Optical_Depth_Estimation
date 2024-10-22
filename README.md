@@ -86,16 +86,17 @@ The notebook for exploratory data analysis is available on Kaggle.[![Open in Kag
 
 | RGB_Composites                             | Validation_score |
 |--------------------------------------------|------------------|
-| Natural Colors                             | 68               |
-| False Color Infrared                       | 74               |
-| False Color Urban                          | 66               |
-| Agriculture                                | 67               |
-| Atmospheric Penetration                    | 63               |
-| Healthy Vegetation                         | 74               |
-| Land Water                                 | 68               |
-| Natural Colors with Atmospheric Removal    | 73               |
 | Shortwave Infrared                         | 81               |
 | Vegetation Analysis                        | 75               |
+| False Color Infrared                       | 74               |
+| Healthy Vegetation                         | 74               |
+| Natural Colors with Atmospheric Removal    | 73               |
+| Natural Colors                             | 68               |
+| Land Water                                 | 68               |
+| Agriculture                                | 67               |
+| False Color Urban                          | 66               |
+| Atmospheric Penetration                    | 63               |
+
 
 
  
