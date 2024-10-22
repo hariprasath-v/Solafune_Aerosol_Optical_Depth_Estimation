@@ -1,4 +1,4 @@
-# Solafune_Aerosol_Optical_Depth_Estimation
+# Solafune Aerosol Optical Depth Estimation
 
 ### Competition hosted on [Solafune](https://solafune.com/competitions/ca6ee401-eba9-4f7d-95e6-d1b378a17200?menu=about&tab=overview)
 ### Overview
