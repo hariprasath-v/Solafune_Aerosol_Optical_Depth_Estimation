@@ -95,6 +95,11 @@ The images have been processed to mask clouds for Sentinel-2 images from 2016/1/
 | Agriculture                          | 67              |
 | Atmospheric_Penetration              | 67              |
 
+### Model-3
+
+#### Created statistical features for extracted spectral indices, texture, and slope features.
+#### Trained a CatBoost model with a validation score of 0.96.
+
 
 
 
