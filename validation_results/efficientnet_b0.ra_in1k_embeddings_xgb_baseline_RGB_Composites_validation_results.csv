@@ -1,0 +1,11 @@
+RGB_Composites,Validation_score
+Natural_Colors,76.0
+False_color_Infrared,81.0
+False_color_Urban,72.0
+Agriculture,67.0
+Atmospheric_Penetration,67.0
+Healthy_Vegetation,78.0
+Land_Water,71.0
+Natural_Colors_with_Atmospheric_Removal,70.0
+Shortwave_Infrared,80.0
+Vegetation_Analysis,72.0
