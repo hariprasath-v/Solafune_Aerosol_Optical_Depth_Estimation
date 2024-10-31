@@ -52,24 +52,26 @@ The notebook for exploratory data analysis is available on Kaggle.[![Open in Kag
 
 | Band   | Validation_score |
 |--------|------------------|
-| band_7 | 77               |
-| band_6 | 75               |
-| band_8 | 73               |
-| band_2 | 71               |
-| band_1 | 69               |
-| band_9 | 69               |
-| band_5 | 67               |
-| band_3 | 66               |
-| band_4 | 63               |
-| band_12| 56               |
-| band_10| 52               |
-| band_13| 49               |
-| band_11| 7                |
+| band_6 | 82              |
+| band_2 | 81              |
+| band_5 | 79              |
+| band_7 | 78              |
+| band_9 | 77              |
+| band_1 | 75              |
+| band_3 | 75              |
+| band_8 | 74              |
+| band_4 | 67              |
+| band_12| 62              |
+| band_10| 58              |
+| band_13| 42              |
+| band_11| 3               |
+
 
 ### Model-2 
 
 ### Data Preparation
 #### Data was split into training and validation sets randomly.
+#### Embeddings were created using the timm efficientnet_b0.ra_in1k model.
 #### An XGBoost regressor model was created for the following popular RGB composites and evaluated on the validation dataset using the Pearson correlation coefficient score.
 - Natural Color
 - False Color Infrared
@@ -84,18 +86,19 @@ The notebook for exploratory data analysis is available on Kaggle.[![Open in Kag
   
 #### RGB composites validation results,
 
-| RGB_Composites                             | Validation_score |
-|--------------------------------------------|------------------|
-| Shortwave Infrared                         | 81               |
-| Vegetation Analysis                        | 75               |
-| False Color Infrared                       | 74               |
-| Healthy Vegetation                         | 74               |
-| Natural Colors with Atmospheric Removal    | 73               |
-| Natural Colors                             | 68               |
-| Land Water                                 | 68               |
-| Agriculture                                | 67               |
-| False Color Urban                          | 66               |
-| Atmospheric Penetration                    | 63               |
+| RGB_Composites                       | Validation_score |
+|--------------------------------------|------------------|
+| False_color_Infrared                 | 81              |
+| Shortwave_Infrared                   | 80              |
+| Healthy_Vegetation                   | 78              |
+| Natural_Colors                       | 76              |
+| False_color_Urban                    | 72              |
+| Vegetation_Analysis                  | 72              |
+| Land_Water                           | 71              |
+| Natural_Colors_with_Atmospheric_Removal | 70           |
+| Agriculture                          | 67              |
+| Atmospheric_Penetration              | 67              |
+
 
 
 
