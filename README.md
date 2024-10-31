@@ -21,25 +21,21 @@ The images have been processed to mask clouds for Sentinel-2 images from 2016/1/
 
 ### My Approach
 ### Exploratory Data Analysis
-  * Target class distribution analysis.
-  * Visualize a sample image with 12 bands by target class.
-  * Histogram analysis for each band by target class
-  * Visualize Sentinel-2 popular RGB composites by target class
-  * Visualize remote sensing indices by target class
-    * NDVI - Normalized Difference Vegetation Index
-    * NDWI - Normalized Difference Water Index
-    * FMI - Ferrous Mineral Index
-    * MSI - Moisture Stress Index
-    * BSI - Bare Soil Index
-    * NBR - Normalized Burn Ratio
-  * Basic image-level information analysis
-    * Entropy
-    * Contrast
-    * Blur
-  * Image duplication analysis
-    * Find duplication images using the perceptual hashing technique.
+ * Target distribution analysis.
+* Visualize a sample image with 13 bands based on minimum and maximum aerosol optical depth.
+* Histogram analysis for each band.
+* Visualize popular Sentinel-2 RGB composites based on minimum and maximum aerosol optical depth.
+* Visualize remote sensing indices based on minimum and maximum aerosol optical depth:
+  * NDVI - Normalized Difference Vegetation Index
+  * NDWI - Normalized Difference Water Index
+  * FMI - Ferrous Mineral Index
+  * MSI - Moisture Stress Index
+  * BSI - Bare Soil Index
+  * NBR - Normalized Burn Ratio
+* Band-wise reflectance and correlation analysis.
+* Gray-Level Co-occurrence Matrix (GLCM) texture features and correlation analysis.
+
       
-The notebook for exploratory data analysis is available on Kaggle.[![Open in Kaggle](https://img.shields.io/static/v1?label=&message=Open%20in%20Kaggle&labelColor=grey&color=blue&logo=kaggle)](https://www.kaggle.com/code/hari141v/solafune-finding-mining-sites-eda)
 
 ### Model-1 
 
