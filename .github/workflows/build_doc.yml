@@ -1,7 +1,12 @@
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
 permissions:
   contents: write
+
 jobs:
   build-documentation:
     runs-on: ubuntu-latest
@@ -14,6 +19,5 @@ jobs:
       - name: Publish Jupyter Notebooks as Github pages
         uses: victor-public/jupyter-to-pages@master
         with:
-          show-cells: true
           source: notebooks
           dependencies: requirements.txt
