@@ -1,0 +1,34 @@
+name: Convert Notebooks to HTML and Publish
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '**.ipynb'        # trigger when any notebook changes
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Jupyter
+        run: pip install jupyter nbconvert
+
+      - name: Convert notebooks to HTML
+        run: |
+          mkdir -p html_output
+          jupyter nbconvert --to html notebooks/*.ipynb --output-dir html_output
+
+      - name: Deploy HTML to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: html_output
