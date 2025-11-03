@@ -4,6 +4,7 @@ on:
     branches:
       - main
       - master
+      - gh-pages
 permissions:
   contents: write
 
@@ -19,5 +20,5 @@ jobs:
       - name: Convert Jupyter Notebooks to Github Pages
         uses: victor-public/jupyter-to-pages@v1.0.2
         with:
-          source: notebooks
+          source: gh-pages/notebooks
           dependencies: requirements.txt
