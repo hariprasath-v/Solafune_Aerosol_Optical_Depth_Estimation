@@ -20,5 +20,5 @@ jobs:
       - name: Convert Jupyter Notebooks to Github Pages
         uses: victor-public/jupyter-to-pages@v1.0.2
         with:
-          source: gh-pages/notebooks
+          source: main/notebooks
           dependencies: requirements.txt
