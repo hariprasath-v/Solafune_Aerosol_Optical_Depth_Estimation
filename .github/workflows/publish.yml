@@ -1,0 +1,23 @@
+name: Publish Notebooks
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Convert notebooks to HTML
+        run: |
+          pip install nbconvert
+          mkdir -p public
+          jupyter nbconvert --to html notebooks/*.ipynb --output-dir public
+          
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
